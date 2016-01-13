@@ -12,7 +12,7 @@ import java.util.Properties;
  * @author root
  */
 public final  class Global {   
-   java.util.ResourceBundle Configuracion = java.util.ResourceBundle.getBundle("ec.acad.accesodatos.database");  
+   java.util.ResourceBundle Configuracion = java.util.ResourceBundle.getBundle("ec.edu.unach.red.accesodatos.database");  
     private String URL=Configuracion.getString("url");
     private String DRIVER = Configuracion.getString("driver");
     private String USER = Configuracion.getString("user");
