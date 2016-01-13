@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="prestamoinfo">
+                <pm:header>
+                    Eliminar Prestamo
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Eliminar ">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Codigo prestamo a eliminar" ></h:outputLabel>
+                                <p:inputText value="#{cprestamo.prSel.codigo}" />
+                                                                
+                            </p:panelGrid>
+                            
+                        </p:panel>
+                        <p:commandLink action="#{cprestamo.delete()}" value="Eliminar" />
+                    </h:form>                    
+                </pm:content>
+                <pm:footer>
+                    Author: David Arias                    
+                </pm:footer>
+            </pm:page>
+                
+        </h:body>
+    </f:view>
+</html>
