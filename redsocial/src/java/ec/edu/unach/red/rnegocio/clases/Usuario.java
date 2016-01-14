@@ -7,11 +7,11 @@ package ec.edu.unach.red.rnegocio.clases;
 
 /**
  *
- * @author Marlon
+ * @author user
  */
 public class Usuario {
-    private int codigo;
-    private String nombres;
+     private int codigo;
+    private String nombre;
     private String email;
     private String clave;
     private String nick;
@@ -20,20 +20,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int codigo, String nombres, String email, String clave, String nick, String genero) {
+    public Usuario(int codigo, String nombre, String email, String clave, String nick, String genero) {
         this.codigo = codigo;
-        this.nombres = nombres;
+        this.nombre = nombre;
         this.email = email;
         this.clave = clave;
         this.nick = nick;
-        this.genero = genero;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
         this.genero = genero;
     }
 
@@ -45,12 +37,12 @@ public class Usuario {
         this.codigo = codigo;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getEmail() {
@@ -76,6 +68,16 @@ public class Usuario {
     public void setNick(String nick) {
         this.nick = nick;
     }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+ 
     
     
 }
