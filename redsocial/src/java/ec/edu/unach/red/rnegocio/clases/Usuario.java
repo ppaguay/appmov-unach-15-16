@@ -7,77 +7,76 @@ package ec.edu.unach.red.rnegocio.clases;
 
 /**
  *
- * @author Mars
+ * @author user
  */
 public class Usuario {
-    private int cod_usuario;
-  private String nombre;
-  private String email;
-  private String clave;
-  private String nick ;
-  private String genero;
+     private int codigo;
+    private String nombre;
+    private String correo;
+    private String clave;
+    private String nick;
+    private String genero;
 
     public Usuario() {
     }
 
-    public Usuario(int cod_usuario, String nombre, String email, String clave, String nick, String genero) {
-        this.cod_usuario = cod_usuario;
+    public Usuario(int codigo, String nombre, String correo, String clave, String nick, String genero) {
+        this.codigo = codigo;
         this.nombre = nombre;
-        this.email = email;
+        this.correo = correo;
         this.clave = clave;
         this.nick = nick;
         this.genero = genero;
     }
 
-    public int getCod_usuario() {
-        return cod_usuario;
-    }
-
-    public void setCod_usuario(int cod_usuario) {
-        this.cod_usuario = cod_usuario;
+    public int getCodigo() {
+        return codigo;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public String getCorreo() {
+        return correo;
     }
 
     public String getClave() {
         return clave;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     public String getNick() {
         return nick;
-    }
-
-    public void setNick(String nick) {
-        this.nick = nick;
     }
 
     public String getGenero() {
         return genero;
     }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
     public void setGenero(String genero) {
         this.genero = genero;
     }
-  
-  
-  
+    
+    
     
 }
