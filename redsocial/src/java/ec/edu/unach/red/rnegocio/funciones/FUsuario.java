@@ -4,51 +4,69 @@
  * and open the template in the editor.
  */
 package ec.edu.unach.red.rnegocio.funciones;
-//import ec.edu.unach.evento.accesodatos.*;
-//import ec.edu.unach.evento.clases.*;
 import ec.edu.unach.red.accesodatos.*;
-//import ec.edu.unach.evento.clases.*;
 import ec.edu.unach.red.rnegocio.clases.*;
 import java.util.*;
-
 /**
  *
- * @author Mars
+ * @author Marlon
  */
 public class FUsuario {
-    
     public static List<Usuario> obtener(){
-        ArrayList<Usuario> lst= new ArrayList<>();
-        String sql="SELECT cod_usuario, nombre, email, clave, nick, genero FROM public.usuario;";
-
-        try{
-            ConjuntoResultado cres= AccesoDatos.ejecutaQuery(sql);
-            Usuario usu;
-            while(cres.next()){
-            usu = new Usuario();
-            usu.setCod_usuario(cres.getInt(1));
-            usu.setNombre(cres.getString(2));
-           lst.add(usu);
-            }
+        ArrayList<Usuario> lsta=new ArrayList<Usuario>();
+        String sql="SELECT codigo, nombres, email, clave, nick, genero FROM usuario";        
+        try {
+            ConjuntoResultado cres = AccesoDatos.ejecutaQuery(sql);
+            Usuario user;
+        while(cres.next()){
+            user=new Usuario();
+            user.setCodigo(cres.getInt(1));
+            user.setNombres(cres.getString(2));
+            user.setEmail(cres.getString(3));
+            user.setClave(cres.getString(4));
+            user.setNick(cres.getString(5));
+            user.setGenero(cres.getString(6));
+            lsta.add(user);
         }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-    return lst;
+        }         
+    return lsta;
     }
     
-    
-    public static boolean insertar(Usuario usu){
-        boolean res=false;
-        String sql= "INSERT INTO usuario(cod_usuario, nombre, email, clave, nick, genero)VALUES (?, ?, ?, ?, ?, ?);";
+    public static Usuario obtener(int codigo){
+        Usuario usuario=null;
+        String sql="SELECT codigo, nombres, email, clave, nick, genero FROM usuario WHERE codigo=?";                           
         try {
             ArrayList<Parametro> lstPar= new ArrayList<>();
-            lstPar.add(new Parametro(1,usu.getCod_usuario()));
-            lstPar.add(new Parametro(2,usu.getNombre()));
-            lstPar.add(new Parametro(3,usu.getEmail()));
-            lstPar.add(new Parametro(4,usu.getClave()));
-            lstPar.add(new Parametro(5,usu.getNick()));
-            lstPar.add(new Parametro(6,usu.getGenero()));
+            lstPar.add(new Parametro(1,codigo));  
+            ConjuntoResultado cres=AccesoDatos.ejecutaQuery(sql,lstPar);
+            while(cres.next()){
+            usuario=new Usuario();
+            usuario.setCodigo(cres.getInt(1));
+            usuario.setNombres(cres.getString(2));
+            usuario.setEmail(cres.getString(3));
+            usuario.setClave(cres.getString(4));
+            usuario.setNick(cres.getString(5));
+            usuario.setGenero(cres.getString(6));    
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return usuario;
+    }
+    
+    public static boolean insertar(Usuario user){
+        boolean res=false;
+        String sql= "INSERT INTO usuario(codigo, nombres, email, clave, nick, genero) VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            ArrayList<Parametro> lstPar= new ArrayList();
+            lstPar.add(new Parametro(1,user.getCodigo()));
+            lstPar.add(new Parametro(2,user.getNombres()));
+            lstPar.add(new Parametro(3,user.getEmail()));
+            lstPar.add(new Parametro(4,user.getClave()));   
+            lstPar.add(new Parametro(5,user.getNick()));
+            lstPar.add(new Parametro(6,user.getGenero()));
             res= AccesoDatos.ejecutaComando1(sql, lstPar);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -56,29 +74,21 @@ public class FUsuario {
         return res;
     }
     
-     public static Usuario obtener(int codigo){
-        Usuario usu=null;
-        String sql= "SELECT cod_usuario, nombre, email, clave, nick, genero from usuario where cod_usuario=?";
+    public static boolean actualizar(Usuario user){
+        boolean res=false;
+        String sql= "UPDATE usuario SET codigo=?, nombres=?, email=?, clave=?, nick=?, genero=? WHERE codigo="+user.getCodigo();         
         try {
-             ArrayList<Parametro> lstPar= new ArrayList<>();
-            lstPar.add(new Parametro(1,codigo));
-            ConjuntoResultado cres= AccesoDatos.ejecutaQuery(sql,lstPar);           
-            while(cres.next()){
-                usu= new Usuario();
-                usu.setCod_usuario(cres.getInt(1));
-                usu.setNombre(cres.getString(2)); 
-                usu.setEmail(cres.getString(3));
-                usu.setClave(cres.getString(4));
-                usu.setNick(cres.getString(5));
-                usu.setGenero(cres.getString(6));
-            }
+            ArrayList<Parametro> lstPar= new ArrayList();
+            lstPar.add(new Parametro(1,user.getCodigo()));
+            lstPar.add(new Parametro(2,user.getNombres()));
+            lstPar.add(new Parametro(3,user.getEmail()));
+            lstPar.add(new Parametro(4,user.getClave()));   
+            lstPar.add(new Parametro(5,user.getNick()));
+            lstPar.add(new Parametro(6,user.getGenero()));
+            res= AccesoDatos.ejecutaComando1(sql, lstPar);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        return usu;
-    } 
-     
-     
-      
-     }  
-    
+        }        
+        return res;
+    }
+}
