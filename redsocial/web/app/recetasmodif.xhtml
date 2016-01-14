@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="recetamodif">
+                <pm:header>
+                    Modificar Receta
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Modifique los Campos ">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Codigo: " ></h:outputLabel>
+                                <p:inputText value="#{cReceta.recSel.codigo}" />
+                                <h:outputLabel value="Nombre" ></h:outputLabel>
+                                <p:inputText value="#{cReceta.recSel.nombre}" /> 
+                                <h:outputLabel value="Detalle" ></h:outputLabel>
+                                <p:inputText value="#{cReceta.recSel.detalle}" />
+                               
+                                <h:outputLabel for="selUsuario" value="Usuario" ></h:outputLabel>
+                                
+                                <p:selectOneMenu id="selUsuario" value="#{cReceta.recSel.usuario.codigo}">
+                                    <f:selectItem itemLabel="Seleccione un usuario" itemValue=""/>
+                                    <f:selectItems value="#{cReceta.listaUsuario}" var="usu" 
+                                                   itemLabel="#{usu.nombre}" itemValue="#{usu.codigo}"/>
+                                </p:selectOneMenu>
+                                
+                                 <h:outputLabel value="Categoria" ></h:outputLabel>
+                                 <p:selectOneMenu id="selCategoria" value="#{cReceta.recSel.categoria.codcat}">
+                                    <f:selectItem itemLabel="Seleccione una categoria" itemValue=""/>
+                                    <f:selectItems value="#{cReceta.listaCategoria}" var="cat" 
+                                                   itemLabel="#{cat.descripcion}" itemValue="#{cat.codcat}"/>
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+                            
+                        </p:panel>
+                        <p:commandLink action="#{cReceta.modificar()}" value="Modificar" />&nbsp;
+                        <p:commandLink type="button" action="recetainfo" value="Regresar" /> &nbsp;
+                    </h:form>                    
+                </pm:content>
+                <pm:footer>
+                    Author: Alex Llumitaxi                    
+                </pm:footer>
+            </pm:page>
+                
+        </h:body>
+    </f:view>
+</html>
