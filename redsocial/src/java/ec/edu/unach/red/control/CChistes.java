@@ -25,14 +25,14 @@ public class CChistes
     private List<Usuario> listaUsuario;
     private String codUsuario;
     
-    private List<Categoria> listaCategoria;
+    private List<Categoria_chistes> listaCategoria;
     private String codCategoria;
     public CChistes ()
     {
         lista=FChistes.obtener();
         chNew= new Chistes(); 
         listaUsuario=FUsuario.obtener();
-        listaCategoria=FCategoria.obtener();
+        listaCategoria=FCategoria_chistes.obtener();
     }
     
     public String cargarChiste() {
@@ -45,7 +45,7 @@ public class CChistes
     //insertar
      public String insertar(){
         chNew.setUsuario(FUsuario.obtener(Integer.parseInt(codUsuario)));
-        chNew.setCategoria(FCategoria.obtener(Integer.parseInt(codCategoria)));
+        chNew.setCategoria(FCategoria_chistes.obtener(Integer.parseInt(codCategoria)));
         FChistes.insertar(chNew);
         lista=FChistes.obtener();
         return "chistess?transition=slide";
@@ -76,7 +76,7 @@ public class CChistes
 
         Map requestMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         chSel.setUsuario(FUsuario.obtener(Integer.parseInt(codUsuario)));
-        chSel.setCategoria(FCategoria.obtener(Integer.parseInt(codCategoria)));
+        chSel.setCategoria(FCategoria_chistes.obtener(Integer.parseInt(codCategoria)));
         FChistes.modificar(chSel);
         lista=FChistes.obtener();
         return "chistess?transition=slide";
@@ -139,11 +139,11 @@ public class CChistes
         this.codUsuario = codUsuario;
     }
 
-    public List<Categoria> getListaCategoria() {
+    public List<Categoria_chistes> getListaCategoria() {
         return listaCategoria;
     }
 
-    public void setListaCategoria(List<Categoria> listaCategoria) {
+    public void setListaCategoria(List<Categoria_chistes> listaCategoria) {
         this.listaCategoria = listaCategoria;
     }
 
