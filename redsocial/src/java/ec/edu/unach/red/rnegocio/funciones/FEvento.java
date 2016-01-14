@@ -45,7 +45,7 @@ public class FEvento {
             lstPar.add(new Parametro(1,even.getCod_evento()));
             lstPar.add(new Parametro(2,even.getNombre()));
             lstPar.add(new Parametro(3,even.getDireccion()));
-            lstPar.add(new Parametro(4,even.getCod_usuario().getCod_usuario()));
+            lstPar.add(new Parametro(4,even.getCod_usuario().getCodigo()));
             lstPar.add(new Parametro(5,even.getCod_tipoevento().getCod_tipoevento()));
             res= AccesoDatos.ejecutaComando1(sql, lstPar);
         } catch (Exception e) {
@@ -111,12 +111,12 @@ public static Evento obtener(int codigo){
     
     public static boolean modif(Evento asig, int cod2){
         boolean res=false;
-        String sql= "UPDATE public.evento SET cod_evento=?, nombre=?, direccion=?, cod_usuario=?, cod_tipoevento=? WHERE where cod_evento =? ;";
+        String sql= "UPDATE public.evento SET cod_evento=?, nombre=?, direccion=?, cod_usuario=?, cod_tipoevento=? where cod_evento =? ;";
         try {
             ArrayList<Parametro> lstPar= new ArrayList<>();
             lstPar.add(new Parametro(1,asig.getNombre()));
             lstPar.add(new Parametro(2,asig.getDireccion()));
-            lstPar.add(new Parametro(3,asig.getCod_usuario().getCod_usuario()));
+            lstPar.add(new Parametro(3,asig.getCod_usuario().getCodigo()));
             lstPar.add(new Parametro(4,asig.getCod_tipoevento().getCod_tipoevento()));
             lstPar.add(new Parametro(5,cod2));
             res= AccesoDatos.ejecutaComando1(sql, lstPar);
@@ -128,12 +128,12 @@ public static Evento obtener(int codigo){
     
     public static boolean modificar(Evento asig){
         boolean res=false;
-        String sql= "UPDATE public.evento SET cod_evento=?, nombre=?, direccion=?, cod_usuario=?, cod_tipoevento=? WHERE where cod_evento ="+asig.getCod_evento();         
+        String sql= "UPDATE public.evento SET cod_evento=?, nombre=?, direccion=?, cod_usuario=?, cod_tipoevento=? where cod_evento ="+asig.getCod_evento();         
         try {
             ArrayList<Parametro> lstPar= new ArrayList();
             lstPar.add(new Parametro(1,asig.getNombre()));
             lstPar.add(new Parametro(2,asig.getDireccion()));
-            lstPar.add(new Parametro(3,asig.getCod_usuario().getCod_usuario()));
+            lstPar.add(new Parametro(3,asig.getCod_usuario().getCodigo()));
             lstPar.add(new Parametro(4,asig.getCod_tipoevento().getCod_tipoevento()));
             
             res= AccesoDatos.ejecutaComando1(sql, lstPar);

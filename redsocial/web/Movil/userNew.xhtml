@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:pm="http://primefaces.org/mobile"
+xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<f:view renderKitId="PRIMEFACES_MOBILE">
+<h:head></h:head>
+<h:body>
+    <pm:page id="peliculaNew">
+        <pm:header>
+        Agregar Usuario
+        </pm:header>
+        <pm:content>
+                    <h:form >
+                        <p:panel header="Informacion ">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Codigo" ></h:outputLabel>
+                                <p:inputText id="codigo" value="#{cPelicula.userNew.codigo}" />
+                                <h:outputLabel value="Nombres" ></h:outputLabel>      
+                                <p:inputText value="#{cPelicula.userNew.nombres}" />
+                                <h:outputLabel value="Email" ></h:outputLabel>
+                                <p:inputText value="#{cPelicula.userNew.email}" />
+                                <h:outputLabel value="Clave" ></h:outputLabel>
+                                <p:inputText value="#{cPelicula.userNew.clave}" />
+                                <h:outputLabel value="Nick" ></h:outputLabel>
+                                <p:inputText value="#{cPelicula.userNew.nick}" />
+                                <h:outputLabel value="Genero" ></h:outputLabel>                                
+                                <h:selectOneRadio value="#{cPelicula.userNew.genero}">
+                                   <f:selectItem itemValue="M" itemLabel="M" />
+                                   <f:selectItem itemValue="F" itemLabel="F" />	   			
+                                </h:selectOneRadio>
+                                <!--<p:inputText value="#{cPelicula.userNew.genero}" />-->
+                            </p:panelGrid>                            
+                        </p:panel>
+                        <p:commandLink action="#{cPelicula.insertUsuario()}" value="Insertar" />                        
+                       </h:form>  
+            <p:commandLink action="peliculas?transition=slide" value="Regresar" />
+                </pm:content>  
+            <pm:footer>
+                Author: Marlon                   
+             </pm:footer>
+    </pm:page>
+</h:body>
+</f:view>
+</html>

@@ -7,42 +7,51 @@ package ec.edu.unach.red.rnegocio.clases;
 
 /**
  *
- * @author Mars
+ * @author Ivancito
  */
-public class Usuario {
-    private int cod_usuario;
-  private String nombre;
-  private String email;
-  private String clave;
-  private String nick ;
-  private String genero;
+public class Usuario 
+{
+    private int codigo;
+    private String nombre;
+    private String email;
+    private String clave;
+    private String nick;
+    private String genero;
 
     public Usuario() {
     }
 
-    public Usuario(int cod_usuario, String nombre, String email, String clave, String nick, String genero) {
-        this.cod_usuario = cod_usuario;
-        this.nombre = nombre;
+    public Usuario(int codusuario, String nombres, String email, String clave, String nick, String genero) {
+        this.codigo = codusuario;
+        this.nombre = nombres;
         this.email = email;
         this.clave = clave;
         this.nick = nick;
         this.genero = genero;
     }
 
-    public int getCod_usuario() {
-        return cod_usuario;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setCod_usuario(int cod_usuario) {
-        this.cod_usuario = cod_usuario;
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codusuario) {
+        this.codigo = codusuario;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombres) {
+        this.nombre = nombres;
     }
 
     public String getEmail() {
@@ -68,16 +77,6 @@ public class Usuario {
     public void setNick(String nick) {
         this.nick = nick;
     }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-  
-  
-  
+    
     
 }

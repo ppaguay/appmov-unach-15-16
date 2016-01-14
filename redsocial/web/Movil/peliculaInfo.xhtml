@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:pm="http://primefaces.org/mobile">
+<f:view renderKitId="PRIMEFACES_MOBILE">
+<h:head></h:head>
+<h:body>
+    <pm:page id="peliculaInfo">
+        <pm:header>
+        Informacion pelicula
+        </pm:header>
+        <pm:content>
+            <h:form >
+                <p:panel header="Informacion ">
+                #{cPelicula.pelSel.codigo}
+                <br/>
+                #{cPelicula.pelSel.titulo}
+                <br/>
+                #{cPelicula.pelSel.director}
+                <br/>
+                #{cPelicula.pelSel.pais}
+                <br/>
+                #{cPelicula.pelSel.usuario.codigo}
+                <br/>
+                #{cPelicula.pelSel.categoria.codigo}
+                </p:panel> 
+                <p:commandButton action="peliculaUpdate?transition=slide" value="Actualizar" style="width: 130px; font-size: 13px"/>
+                <p:commandButton action="peliculaDelete?transition=slide" value="Eliminar" style="width: 130px; font-size: 13px"/>
+                <p:commandButton action="peliculas?transition=slide" value="Regresar" style="width: 130px; font-size: 13px"/>
+            </h:form>              
+        </pm:content>         
+        <pm:footer>
+            Author: Marlon                   
+        </pm:footer>
+    </pm:page>
+</h:body>
+</f:view>
+</html>
