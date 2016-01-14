@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="Chisteinfo">
+                <pm:header>
+                    Nuevo Chiste
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Informacion ">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Codigo: " ></h:outputLabel>
+                                <p:inputText value="#{cChistes.chNew.codigo_ch}" />
+                                <h:outputLabel value="Titulo: " ></h:outputLabel>
+                                <p:inputText value="#{cChistes.chNew.titulo}" /> 
+                                <h:outputLabel value="Descripcion: " ></h:outputLabel>
+                                <p:inputText value="#{cChistes.chNew.descripcion}" /> 
+                               
+                                <h:outputLabel for="selUsuario" value="Usuario" ></h:outputLabel>
+                                <p:selectOneMenu id="selUsuario" value="#{cChistes.codUsuario}">
+                                    <f:selectItem itemLabel="Seleccione un usuario" itemValue=""/>
+                                    <f:selectItems value="#{cChistes.listaUsuario}" var="usu" 
+                                                   itemLabel="#{usu.user}" itemValue="#{usu.codigo}"/>
+                                </p:selectOneMenu>
+                                
+                                 <h:outputLabel value="Categoria" ></h:outputLabel>
+                                 <p:selectOneMenu id="selCategoria" value="#{cChistes.codCategoria}">
+                                    <f:selectItem itemLabel="Seleccione una categoria" itemValue=""/>
+                                    <f:selectItems value="#{cChistes.listaCategoria}" var="cat" 
+                                                   itemLabel="#{cat.tipo}" itemValue="#{cat.codigo}"/>
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+                            
+                        </p:panel>
+                        <p:commandLink action="#{cChistes.insertar()}" value="Insertar Chiste" />&nbsp;
+                        <p:commandLink action="chistess?transition=slide" value="Regresar" />
+                    </h:form>                    
+                </pm:content>
+                <pm:footer>
+                    Author: Pulpin                    
+                </pm:footer>
+            </pm:page>
+                
+        </h:body>
+    </f:view>
+</html>
