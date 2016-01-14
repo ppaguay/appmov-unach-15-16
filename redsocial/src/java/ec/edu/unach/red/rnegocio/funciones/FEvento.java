@@ -111,7 +111,7 @@ public static Evento obtener(int codigo){
     
     public static boolean modif(Evento asig, int cod2){
         boolean res=false;
-        String sql= "UPDATE public.evento SET cod_evento=?, nombre=?, direccion=?, cod_usuario=?, cod_tipoevento=? WHERE where cod_evento =? ;";
+        String sql= "UPDATE public.evento SET cod_evento=?, nombre=?, direccion=?, cod_usuario=?, cod_tipoevento=? where cod_evento =? ;";
         try {
             ArrayList<Parametro> lstPar= new ArrayList<>();
             lstPar.add(new Parametro(1,asig.getNombre()));
@@ -128,7 +128,7 @@ public static Evento obtener(int codigo){
     
     public static boolean modificar(Evento asig){
         boolean res=false;
-        String sql= "UPDATE public.evento SET cod_evento=?, nombre=?, direccion=?, cod_usuario=?, cod_tipoevento=? WHERE where cod_evento ="+asig.getCod_evento();         
+        String sql= "UPDATE public.evento SET cod_evento=?, nombre=?, direccion=?, cod_usuario=?, cod_tipoevento=? where cod_evento ="+asig.getCod_evento();         
         try {
             ArrayList<Parametro> lstPar= new ArrayList();
             lstPar.add(new Parametro(1,asig.getNombre()));
