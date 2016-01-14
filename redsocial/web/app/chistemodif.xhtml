@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="chistemodif">
+                <pm:header>
+                    Modificar Chiste
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Informacion ">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Titulo" ></h:outputLabel>
+                                <p:inputText value="#{cChistes.chSel.titulo}" /> 
+                                <h:outputLabel value="Usuario" ></h:outputLabel>
+                                <p:selectOneMenu id="selUsuario" value="#{cChistes.codUsuario}">
+                                    <f:selectItem itemLabel="Seleccione un Usuario" itemValue=""/>
+                                    <f:selectItems value="#{cChistes.listaUsuario}" var="us" 
+                                                   itemLabel="#{us.user}" itemValue="#{us.codigo}"/>
+                                </p:selectOneMenu>
+                                <h:outputLabel value="Descripcion" ></h:outputLabel>
+                                <p:inputText value="#{cChistes.chSel.descripcion}" />
+                                <h:outputLabel value="Categoria" ></h:outputLabel>
+                                <p:selectOneMenu id="selCategoria" value="#{cChistes.codCategoria}" rendered="true" requiredMessage="Debe escoger una Categoria" >
+                                    <f:selectItem itemLabel="Seleccione un Categoria" itemValue=""/>
+                                    <f:selectItems value="#{cChistes.listaCategoria}" var="cat" 
+                                                   itemLabel="#{cat.tipo}" itemValue="#{cat.codigo}"/>
+                                </p:selectOneMenu> 
+                               
+                            </p:panelGrid>
+                            
+                        </p:panel>
+                        <p:commandLink action="#{cChistes.modificar()}" value="    Modificar Chiste    " >
+                        </p:commandLink>
+                    </h:form>                    
+                </pm:content>
+                <pm:footer>
+                    Author:                   
+                </pm:footer>
+            </pm:page>
+                
+        </h:body>
+    </f:view>
+</html>
