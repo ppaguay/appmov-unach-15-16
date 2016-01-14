@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:pm="http://primefaces.org/mobile"
+xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<f:view renderKitId="PRIMEFACES_MOBILE">
+<h:head></h:head>
+<h:body>
+    <pm:page id="peliculaUpdate">
+        <pm:header>
+        Actualizar Pelicula
+        </pm:header>
+        <pm:content>
+                    <h:form >
+                        <p:panel header="Informacion ">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Codigo" ></h:outputLabel>
+                                <p:inputText id="codigo" value="#{cPelicula.pelSel.codigo}" />
+                                <h:outputLabel value="Titulo" ></h:outputLabel>      
+                                <p:inputText value="#{cPelicula.pelSel.titulo}" />
+                                <h:outputLabel value="Director" ></h:outputLabel>
+                                <p:inputText value="#{cPelicula.pelSel.director}" />
+                                <h:outputLabel value="Pais" ></h:outputLabel>
+                                <p:inputText value="#{cPelicula.pelSel.pais}" />
+                                
+                                <h:outputLabel for="selUsuario" value="Usuario"/>                                
+                                <p:selectOneMenu id="selUsuario" value="#{cPelicula.codUsuario}">
+                                    <f:selectItem itemLabel="#{cPelicula.pelSel.usuario.nombres}" itemValue="#{cPelicula.pelSel.codigo}"/>
+                                <f:selectItems value="#{cPelicula.listaUsuario}" var="usu"
+                                               itemLabel="#{usu.nombres}" itemValue="#{usu.codigo}"/>
+                                </p:selectOneMenu>
+                                <h:outputLabel for="selCategoria" value="Categoria"/>                                
+                                <p:selectOneMenu id="selCategoria" value="#{cPelicula.codCategoria}">
+                                    <f:selectItem itemLabel="#{cPelicula.pelSel.categoria.descripcion}" itemValue="#{cPelicula.pelSel.codigo}"/>
+                                <f:selectItems value="#{cPelicula.listaCategoria}" var="cat"
+                                               itemLabel="#{cat.descripcion}" itemValue="#{cat.codigo}"/>
+                                </p:selectOneMenu>
+                                <!--<h:outputLabel value="Codigo usuario" ></h:outputLabel>
+                                p:inputText value="#{cPelicula.pelSel.usuario.codigo}" />
+                                <h:outputLabel value="Codigo Categoria" ></h:outputLabel>
+                                <p:inputText value="#{cPelicula.pelSel.categoria.codigo}" />-->
+                            </p:panelGrid>                            
+                        </p:panel>
+                        <p:commandLink action="#{cPelicula.actualizar()}" value="Actualizar" />                        
+                       </h:form>  
+            <p:commandLink action="peliculaInfo?transition=slide" value="Regresar" />
+                </pm:content>  
+            <pm:footer>
+                Author: Marlon                   
+             </pm:footer>
+    </pm:page>
+</h:body>
+</f:view>
+</html>
