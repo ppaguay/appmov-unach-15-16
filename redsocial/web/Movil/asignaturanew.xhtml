@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="productoinfo">
+                <pm:header>
+                    Nuevo Producto
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Informacion del Asignatura">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Codigo" ></h:outputLabel>
+                                <p:inputText value="#{cAsignatura.asigNew.cod_asignatura}" />
+                                <h:outputLabel value="Nombre" ></h:outputLabel>
+                                <p:inputText value="#{cAsignatura.asigNew.nombre}" />
+                                <h:outputLabel value="Descripcion" ></h:outputLabel>
+                                <p:inputText value="#{cAsignatura.asigNew.descripcion}" />
+                                <h:outputLabel for="selUsuario" value="Usuario"/>
+                                
+                                <p:selectOneMenu id="selUsuario" value="#{cAsignatura.codUsuarioSel}">
+                                <f:selectItem itemLabel="Seleccione un usuario" itemValue=""/>
+                                <f:selectItems value="#{cAsignatura.listaUsuario}" var="usu"
+                                               itemLabel="#{usu.nombre}" itemValue="#{usu.cod_usuario}"/>
+                                </p:selectOneMenu>
+                                
+                                <h:outputLabel for="selLaboratorio" value="Laboratorio"/>
+                                
+                                <p:selectOneMenu id="selLaboratorio" value="#{cAsignatura.codLaboratorioSel}">
+                                <f:selectItem itemLabel="Seleccione una Laboratorio" itemValue=""/>
+                                <f:selectItems value="#{cAsignatura.listaLaboratorio}" var="lap"
+                                               itemLabel="#{lap.nombre}" itemValue="#{lap.cod_laboratorio}"/>
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+                            
+                        </p:panel>
+                        <p:commandLink action="#{cAsignatura.insertar()}" value="Insertar" />
+                    </h:form>                    
+                </pm:content>
+                <pm:footer>
+                    Author: Marco Guapi                    
+                </pm:footer>
+            </pm:page>
+                
+        </h:body>
+    </f:view>
+</html>

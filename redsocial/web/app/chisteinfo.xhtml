@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:f="http://java.sun.com/jsf/core"
+
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:pm="http://primefaces.org/mobile">
+
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+
+        <h:head></h:head>
+
+        <h:body>
+
+            <pm:page id="chisteinfo">
+
+                <pm:header>
+
+                    Informacion Chistes
+
+                </pm:header>
+
+                <pm:content>
+
+                    <h:form >
+
+                        <p:panel header="Informacion ">
+                            
+                            Codigo: #{cChistes.chSel.codigo_ch}
+                            <br/>
+                            Nombre Usuario: #{cChistes.chSel.usuario.user}
+                            <br/>
+                            Titulo Chiste: #{cChistes.chSel.titulo}
+                           <br/>
+                           Categoria: #{cChistes.chSel.categoria.tipo}
+
+                        </p:panel>
+                        
+                        <p:commandLink value="Eliminar chiste" action="#{cChistes.eliminar()}" />&nbsp;
+                        <f:param name="chiste" value="#{cChistes.chSel.codigo_ch}" />
+                        <p:commandLink value="Modificar Chistes"
+                               action="chistemodif" ></p:commandLink>&nbsp;
+                   <p:commandLink action="chistess?transition=slide" value="Regresar" />&nbsp;                        
+                        
+
+                    </h:form>
+
+                </pm:content>
+
+                <pm:footer>
+
+                    Author: Pulpin
+
+                </pm:footer>
+
+            </pm:page>
+
+
+
+        </h:body>
+
+    </f:view>
+
+</html>

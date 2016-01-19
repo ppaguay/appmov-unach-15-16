@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="aplicacioninfo">
+                <pm:header>
+                    Informacion aplicacion
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Informacion ">
+                            
+                            #{cAplicacion.apliSel.codigo}
+                            <br/>
+                            <a>Nombre de aplicacion</a>
+                            <br/>
+                            #{cAplicacion.apliSel.nombre}
+                            <br/>
+                            <a>Descripcion dela aplicacion</a>
+                            <br/>
+                            #{cAplicacion.apliSel.descripcion}
+                            <br/>
+                            <a>Nombre del desarrollador</a>
+                            <br/>
+                            #{cAplicacion.apliSel.usuario.nombres}
+                            <br/>
+                            <a>Tipo de aplicacion</a>
+                            <br/>
+                            #{cAplicacion.apliSel.tipoaplicacion.nombre}
+                            
+                        </p:panel>
+                       <p:commandLink value="Modificar" action="aplicacionmodif"></p:commandLink><p></p>
+                        
+                       <p:commandLink value="Eliminar" action="#{cAplicacion.eliminar()}" > 
+                           <f:param name="apli" value="#{cAplicacion.apliSel.codigo}" />
+                        </p:commandLink> &nbsp;
+
+                        <p:commandLink action="aplicacion?transition=slide" value="Regresar" />
+                    </h:form>
+                </pm:content>
+                <pm:footer>
+                    Author: Marco Guapi
+                </pm:footer>
+            </pm:page>
+        </h:body>
+    </f:view>
+
+</html>

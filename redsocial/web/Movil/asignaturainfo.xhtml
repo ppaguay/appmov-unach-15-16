@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="asignaturainfo">
+                <pm:header>
+                    Informacion Eproducto
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Informacion ">
+                            #{cAsignatura.asigSel.cod_asignatura}
+                            <br/>
+                            #{cAsignatura.asigSel.nombre}
+                            <br/>
+                            #{cAsignatura.asigSel.descripcion}
+                            <br/>
+                            #{cAsignatura.asigSel.laboratorio.nombre}
+                            <br/>
+                            #{cAsignatura.asigSel.usuario.nombre}
+                            
+                        </p:panel>
+                       <p:commandLink value="Modificar" action="asignaturamodif"></p:commandLink><p></p>
+                        
+                       <p:commandLink value="Eliminar" action="#{cAsignatura.eliminar()}" > 
+                           <f:param name="asignatura" value="#{cAsignatura.asigSel.cod_asignatura}" />
+                        </p:commandLink> &nbsp;
+
+                        <p:commandLink action="asignatura?transition=slide" value="Regresar" />
+                    </h:form>
+                </pm:content>
+                <pm:footer>
+                    Author: Marco Guapi
+                </pm:footer>
+            </pm:page>
+        </h:body>
+    </f:view>
+
+</html>

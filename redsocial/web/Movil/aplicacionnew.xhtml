@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="productoinfo">
+                <pm:header>
+                    Nuevo Producto
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Informacion del Asignatura">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Codigo" ></h:outputLabel>
+                                <p:inputText value="#{cAplicacion.apliNew.codigo}" />
+                                <h:outputLabel value="Nombre" ></h:outputLabel>
+                                <p:inputText value="#{cAplicacion.apliNew.nombre}" />
+                                <h:outputLabel value="Descripcion" ></h:outputLabel>
+                                <p:inputText value="#{cAplicacion.apliNew.descripcion}" />
+                                <h:outputLabel for="selUsuario" value="Usuario"/>
+                                
+                                <p:selectOneMenu id="selUsuario" value="#{cAplicacion.codUsuarioSel}">
+                                <f:selectItem itemLabel="Seleccione un usuario" itemValue=""/>
+                                <f:selectItems value="#{cAplicacion.listaUsuario}" var="usu"
+                                               itemLabel="#{usu.nombres}" itemValue="#{usu.codigo}"/>
+                                </p:selectOneMenu>
+                                
+                                <h:outputLabel for="selTipoaplicacion" value="Tipoaplicacion"/>
+                                
+                                <p:selectOneMenu id="selTipoaplicacion" value="#{cAplicacion.codTipoaplicacionSel}">
+                                <f:selectItem itemLabel="Seleccione un tipo de aplicacion" itemValue=""/>
+                                <f:selectItems value="#{cAplicacion.listaTipoaplicacion}" var="apli"
+                                               itemLabel="#{apli.nombre}" itemValue="#{apli.codigo}"/>
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+                            
+                        </p:panel>
+                        <p:commandLink action="#{cAplicacion.insertar()}" value="Insertar" />
+                    </h:form>                    
+                </pm:content>
+                <pm:footer>
+                    Author: Marco Guapi                    
+                </pm:footer>
+            </pm:page>
+                
+        </h:body>
+    </f:view>
+</html>
