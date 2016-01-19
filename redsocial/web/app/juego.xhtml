@@ -1,0 +1,50 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      >
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="listaJuego">
+                <pm:header>
+                    Listado de los Juegos
+                </pm:header>
+                <pm:content>
+                    <h:form id="frmJuego">
+                        <p:commandLink value="Nuevo Juego"
+                               action="juegonuevo" ></p:commandLink>
+                        <p:panel header="Panel Listado ">
+                            <p:dataList id="dtJuego"
+                                        value="#{cJuego.lista}" var="item"
+                                        paginator="true" pt:data-role="listview"
+                                        pt:data-filter="true" rows="10"
+                                        rowsPerPageTemplate="10,20,30.40,50">
+                                <p:commandLink
+                                    action="#{cJuego.cargarJuego()}" >
+                                    <f:param name="juego" value="#{item.codigo}" />
+                                    <h:panelGroup>
+                                        <h:outputText value="#{item.codigo}" /> 
+                                        <h:outputText value="#{item.titulo}" /> 
+                                    </h:panelGroup>
+                                </p:commandLink>
+                            </p:dataList>
+                        </p:panel>
+                    </h:form>
+                </pm:content>
+                <pm:footer>
+                    Author: Alex Auquilla                   
+                </pm:footer>
+            </pm:page>
+        </h:body>
+    </f:view>
+</html>
+
