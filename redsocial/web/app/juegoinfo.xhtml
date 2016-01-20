@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:f="http://java.sun.com/jsf/core"
+
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:pm="http://primefaces.org/mobile">
+
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="juegoinfo">
+                <pm:header>
+                    Informacion del Juego
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Datos: ">                     
+                            Codigo: #{cJuego.juegoSel.codigo}
+                             <br/>
+                            Usuario: #{cJuego.juegoSel.usuario.nombre}
+                            <br/>
+                            Titulo: #{cJuego.juegoSel.titulo}
+                            <br/>
+                            Descripcion: #{cJuego.juegoSel.jugadores}
+                             <br/>
+                             Categoria: #{cJuego.juegoSel.categoria.descripcion}
+                        </p:panel>    
+                       <p:commandLink value="Eliminar" action="#{cJuego.eliminar()}" /> <br/>
+                       <f:param name="juego" value="#{cJuego.juegoSel.codigo}" />
+                        <p:commandLink value="Modificar Juegos"
+                               action="juegoupdate" ></p:commandLink> <br/>
+                   <p:commandLink action="juego?transition=slide" value="Regresar" /> <br/>     
+                    </h:form>
+                </pm:content>
+                <pm:footer>
+
+                    Autor:  Alex Auquilla
+
+                </pm:footer>
+
+            </pm:page>
+
+
+
+        </h:body>
+
+    </f:view>
+
+</html>
