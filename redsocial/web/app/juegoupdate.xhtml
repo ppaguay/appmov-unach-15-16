@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head></h:head>
+        <h:body>
+            <pm:page id="juegoupdate">
+                <pm:header>
+                    Modificar Juego
+                </pm:header>
+                <pm:content>
+                    <h:form >
+                        <p:panel header="Datos">
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="Titulo" ></h:outputLabel>
+                                <p:inputText value="#{cJuego.juegoSel.titulo}" /> 
+                                <h:outputLabel value="Usuario" ></h:outputLabel>
+                                <p:selectOneMenu id="selUsuario" value="#{cJuego.codUsuario}">
+                                    <f:selectItem itemLabel="Seleccione una Usuario" itemValue=""/>
+                                    <f:selectItems value="#{cJuego.listaUsuario}" var="us" 
+                                                   itemLabel="#{us.nombre}" itemValue="#{us.codigo}"/>
+                                </p:selectOneMenu>
+                                <h:outputLabel value="Numero de Jugadores" ></h:outputLabel>
+                                <p:inputText value="#{cJuego.juegoSel.jugadores}" />
+                                <h:outputLabel value="Categoria" ></h:outputLabel>
+                                <p:selectOneMenu id="selCategoria" value="#{cJuego.codCategoria}" rendered="true" requiredMessage="Debe escoger una Categoria" >
+                                    <f:selectItem itemLabel="Seleccione un Categoria" itemValue=""/>
+                                    <f:selectItems value="#{cJuego.listaCategoria}" var="jue" 
+                                                   itemLabel="#{jue.descripcion}" itemValue="#{jue.codigo}"/>
+                                </p:selectOneMenu> 
+                               
+                            </p:panelGrid>
+                            
+                        </p:panel>
+                        <p:commandLink action="#{cJuego.modificar()}" value="    Modificar Juego     " >
+                        </p:commandLink>
+                    </h:form>                    
+                </pm:content>
+                <pm:footer>
+                    Author: Alex Auquilla                 
+                </pm:footer>
+            </pm:page>
+                
+        </h:body>
+    </f:view>
+</html>
